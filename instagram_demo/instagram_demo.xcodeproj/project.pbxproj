@@ -17,6 +17,9 @@
 		C37FA7B31605EACD00ACBC27 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA7B21605EACD00ACBC27 /* DetailViewController.m */; };
 		C37FA7B61605EACD00ACBC27 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37FA7B41605EACD00ACBC27 /* MasterViewController.xib */; };
 		C37FA7B91605EACD00ACBC27 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37FA7B71605EACD00ACBC27 /* DetailViewController.xib */; };
+		C37FA7FE1605F64600ACBC27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA7FC1605F64600ACBC27 /* LoginViewController.m */; };
+		C37FA7FF1605F64600ACBC27 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */; };
+		C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA801160628CC00ACBC27 /* InstaInteractor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		C37FA7B21605EACD00ACBC27 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C37FA7B51605EACD00ACBC27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		C37FA7B81605EACD00ACBC27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		C37FA7FB1605F64500ACBC27 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C37FA7FC1605F64600ACBC27 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C37FA800160628CB00ACBC27 /* InstaInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaInteractor.h; sourceTree = "<group>"; };
+		C37FA801160628CC00ACBC27 /* InstaInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaInteractor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,11 @@
 				C37FA7B21605EACD00ACBC27 /* DetailViewController.m */,
 				C37FA7B41605EACD00ACBC27 /* MasterViewController.xib */,
 				C37FA7B71605EACD00ACBC27 /* DetailViewController.xib */,
+				C37FA7FB1605F64500ACBC27 /* LoginViewController.h */,
+				C37FA7FC1605F64600ACBC27 /* LoginViewController.m */,
+				C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */,
+				C37FA800160628CB00ACBC27 /* InstaInteractor.h */,
+				C37FA801160628CC00ACBC27 /* InstaInteractor.m */,
 				C37FA7A31605EACC00ACBC27 /* Supporting Files */,
 			);
 			path = instagram_demo;
@@ -160,6 +173,7 @@
 				C37FA7A71605EACC00ACBC27 /* InfoPlist.strings in Resources */,
 				C37FA7B61605EACD00ACBC27 /* MasterViewController.xib in Resources */,
 				C37FA7B91605EACD00ACBC27 /* DetailViewController.xib in Resources */,
+				C37FA7FF1605F64600ACBC27 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +188,8 @@
 				C37FA7AD1605EACD00ACBC27 /* AppDelegate.m in Sources */,
 				C37FA7B01605EACD00ACBC27 /* MasterViewController.m in Sources */,
 				C37FA7B31605EACD00ACBC27 /* DetailViewController.m in Sources */,
+				C37FA7FE1605F64600ACBC27 /* LoginViewController.m in Sources */,
+				C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +276,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "instagram_demo/instagram_demo-Prefix.pch";
 				INFOPLIST_FILE = "instagram_demo/instagram_demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -271,6 +288,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "instagram_demo/instagram_demo-Prefix.pch";
 				INFOPLIST_FILE = "instagram_demo/instagram_demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
