@@ -9,14 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class MasterViewController;
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UIWebViewDelegate>
 
+@property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) MasterViewController *masterViewController;
-
-@property (retain, nonatomic) IBOutlet UITextField *loginTextField;
-@property (retain, nonatomic) IBOutlet UITextField *passwordTextField;
-
-- (IBAction)logIn:(id)sender;
-- (IBAction)dismissKeyboard:(id)sender;
 
 @end

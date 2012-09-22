@@ -11,6 +11,7 @@
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
+<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 

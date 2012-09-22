@@ -13,15 +13,20 @@
 
 @end
 
+//static NSString *const tokenUrlString = @" https://api.instagram.com/oauth/access_token/ ";
+
+//static NSString *const clientID = @"bd4a5d199d1840a8b17054fab5835000";
+//static NSString *const clientSecret = @"bd4a5d199d1840a8b17054fab5835000";
+
+
 @implementation LoginViewController
-@synthesize loginTextField;
-@synthesize passwordTextField;
+@synthesize webView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-            self.title = @"Instagram";
+            self.title = @"Instagram Demo";
     }
     return self;
 }
@@ -36,12 +41,39 @@
                                                             action:nil];
     self.navigationItem.backBarButtonItem =logoutButton;
     [logoutButton release];
+    
+ //   NSString *urlAddress = @"http://www.google.com";
+    NSString *urlAddress2 = @"https://api.instagram.com/oauth/authorize/?client_id=bd4a5d199d1840a8b17054fab5835000&redirect_uri=http://habrahabr.ru/NeverGonnaFindMe&scope=likes&response_type=token&display=touch";    
+    //Create a URL object.
+    NSURL *url = [NSURL URLWithString:urlAddress2];
+    
+    //URL Requst Object
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    //Load the request in the UIWebView.
+    [webView loadRequest:requestObj];
+    [webView setScalesPageToFit:YES];
 }
+
+//- (void)viewDidLoad {
+//[super viewDidLoad];
+//    // Do any additional setup after loading the view.
+//    NSString *fullAuthUrlString = [[NSString alloc]
+//                                   initWithFormat:@"%@/?client_id=%@&redirect_uri=%@&scope=%@&response_type=token&display=touch",
+//                                   authUrlString,
+//                                   clientID,
+//                                   redirectUri,
+//                                   scope
+//                                   ];
+//    NSURL *authUrl = [NSURL URLWithString:fullAuthUrlString];
+//    NSURLRequest *myRequest = [[NSURLRequest alloc] initWithURL:authUrl];
+//    [webView loadRequest:myRequest];
+//}
+
 
 - (void)viewDidUnload
 {
-    [self setLoginTextField:nil];
-    [self setPasswordTextField:nil];
+    [self setWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,47 +84,50 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)logIn:(id)sender {
-    NSString *login = loginTextField.text;
-    NSString *password = passwordTextField.text;
-    
-    [loginTextField resignFirstResponder];
-    [passwordTextField resignFirstResponder];
-    
-    BOOL loggedIn = NO; //[instaInteractor connect];
-    
-    if(loggedIn)
-    {
-        if (!self.masterViewController) {
-            self.masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
-        }
-        [self.navigationController pushViewController:self.masterViewController animated:YES];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Autentifcation failed"
-                                                        message:@"Try again."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        [alert release];    }
-}
-
-- (IBAction)dismissKeyboard:(id)sender {
-    [loginTextField resignFirstResponder];
-    [passwordTextField resignFirstResponder];
-}
-
 - (void)dealloc {
-    [loginTextField release];
-    [passwordTextField release];
+    [webView release];
     [super dealloc];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *Url = [request URL];
+    NSArray *UrlParts = [Url pathComponents];
+    if ([[UrlParts objectAtIndex:(1)] isEqualToString:@"NeverGonnaFindMe"]) {
+        // CONVERT TO STRING AN CLEAN
+        NSString *urlResources = [Url resourceSpecifier];
+        urlResources = [urlResources stringByReplacingOccurrencesOfString:@"?" withString:@""];
+        urlResources = [urlResources stringByReplacingOccurrencesOfString:@"#" withString:@""];
+        
+        // SEPORATE OUT THE URL ON THE /
+        NSArray *urlResourcesArray = [urlResources componentsSeparatedByString:@"/"];
+        // THE LAST OBJECT IN THE ARRAY
+        NSString *urlParamaters = [urlResourcesArray objectAtIndex:([urlResourcesArray count]-1)];
+        // SEPORATE OUT THE URL ON THE &
+        NSArray *urlParamatersArray = [urlParamaters componentsSeparatedByString:@"&"];
+        
+        if([urlParamatersArray count] == 1) {
+            NSString *keyValue = [urlParamatersArray objectAtIndex:(0)];
+            NSArray *keyValueArray = [keyValue componentsSeparatedByString:@"="];
+            
+            if([[keyValueArray objectAtIndex:(0)] isEqualToString:@"NeverGonnaFindMeaccess_token"]) {
+   //             if (!self.masterViewController) {
+                    self.masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
+     //           }
+                [self.navigationController pushViewController:self.masterViewController animated:YES];
+            }
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Autentifcation failed"
+                                                            message:@"Try again."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        
+        [self dismissModalViewControllerAnimated:YES];
+        return NO;
+    }
     return YES;
 }
 
