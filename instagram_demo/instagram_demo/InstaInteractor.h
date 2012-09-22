@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *token;
+
 @interface InstaInteractor : NSObject
+
++(NSString *) token;
++(void) setToken:(NSString *)newToken;
+
++(void) getFeed;
 
 @end

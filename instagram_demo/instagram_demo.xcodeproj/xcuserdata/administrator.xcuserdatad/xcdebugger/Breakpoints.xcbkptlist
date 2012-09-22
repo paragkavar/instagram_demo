@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "instagram_demo/LoginViewController.m"
-         timestampString = "369940612.056421"
+         timestampString = "370005843.027921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "22"
-         endingLineNumber = "22"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
          landmarkName = "@implementation LoginViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "instagram_demo/LoginViewController.m"
-         timestampString = "369941786.717106"
+         timestampString = "370005843.027921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
+         startingLineNumber = "118"
+         endingLineNumber = "118"
          landmarkName = "@implementation LoginViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "instagram_demo/LoginViewController.m"
-         timestampString = "369940870.970383"
+         timestampString = "370005843.027921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
+         startingLineNumber = "118"
+         endingLineNumber = "118"
          landmarkName = "@implementation LoginViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -47,22 +47,35 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "instagram_demo/LoginViewController.m"
-         timestampString = "369941786.717106"
+         timestampString = "370005843.027921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135">
+         startingLineNumber = "119"
+         endingLineNumber = "119">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "instagram_demo/LoginViewController.m"
-         timestampString = "369943048.517588"
+         timestampString = "370005843.027921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136">
+         startingLineNumber = "120"
+         endingLineNumber = "120">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "instagram_demo/InstaInteractor.m"
+         timestampString = "370005843.027921"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "+setToken:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

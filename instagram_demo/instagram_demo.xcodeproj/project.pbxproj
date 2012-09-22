@@ -20,6 +20,7 @@
 		C37FA7FE1605F64600ACBC27 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA7FC1605F64600ACBC27 /* LoginViewController.m */; };
 		C37FA7FF1605F64600ACBC27 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */; };
 		C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA801160628CC00ACBC27 /* InstaInteractor.m */; };
+		C37FBD31160DBC9900058DCE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FBD30160DBC9900058DCE /* JSONKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		C37FA800160628CB00ACBC27 /* InstaInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaInteractor.h; sourceTree = "<group>"; };
 		C37FA801160628CC00ACBC27 /* InstaInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaInteractor.m; sourceTree = "<group>"; };
+		C37FBD2F160DBC6500058DCE /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		C37FBD30160DBC9900058DCE /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 			children = (
 				C37FA7AB1605EACD00ACBC27 /* AppDelegate.h */,
 				C37FA7AC1605EACD00ACBC27 /* AppDelegate.m */,
+				C37FBD2F160DBC6500058DCE /* JSONKit.h */,
+				C37FBD30160DBC9900058DCE /* JSONKit.m */,
 				C37FA7AE1605EACD00ACBC27 /* MasterViewController.h */,
 				C37FA7AF1605EACD00ACBC27 /* MasterViewController.m */,
 				C37FA7B11605EACD00ACBC27 /* DetailViewController.h */,
@@ -190,6 +195,7 @@
 				C37FA7B31605EACD00ACBC27 /* DetailViewController.m in Sources */,
 				C37FA7FE1605F64600ACBC27 /* LoginViewController.m in Sources */,
 				C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */,
+				C37FBD31160DBC9900058DCE /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +282,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "instagram_demo/instagram_demo-Prefix.pch";
 				INFOPLIST_FILE = "instagram_demo/instagram_demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = "4.3	";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -288,7 +294,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "instagram_demo/instagram_demo-Prefix.pch";
 				INFOPLIST_FILE = "instagram_demo/instagram_demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = "4.3	";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
