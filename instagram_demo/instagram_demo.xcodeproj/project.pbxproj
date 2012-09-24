@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C37F7E0E1610CEF300B8CCD7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C37F7E0D1610CEF300B8CCD7 /* arrow.png */; };
+		C37F7E101610CEFC00B8CCD7 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37F7E0F1610CEFC00B8CCD7 /* arrow@2x.png */; };
 		C37FA79D1605EACC00ACBC27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37FA79C1605EACC00ACBC27 /* UIKit.framework */; };
 		C37FA79F1605EACC00ACBC27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37FA79E1605EACC00ACBC27 /* Foundation.framework */; };
 		C37FA7A11605EACC00ACBC27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37FA7A01605EACC00ACBC27 /* CoreGraphics.framework */; };
@@ -21,9 +23,13 @@
 		C37FA7FF1605F64600ACBC27 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37FA7FD1605F64600ACBC27 /* LoginViewController.xib */; };
 		C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FA801160628CC00ACBC27 /* InstaInteractor.m */; };
 		C37FBD31160DBC9900058DCE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FBD30160DBC9900058DCE /* JSONKit.m */; };
+		C37FBD34160DE67500058DCE /* AsyncLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FBD33160DE67400058DCE /* AsyncLoader.m */; };
+		C37FBD37160DF0D800058DCE /* FeedRow.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FBD36160DF0D700058DCE /* FeedRow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C37F7E0D1610CEF300B8CCD7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		C37F7E0F1610CEFC00B8CCD7 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		C37FA7981605EACC00ACBC27 /* instagram_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37FA79C1605EACC00ACBC27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C37FA79E1605EACC00ACBC27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +53,10 @@
 		C37FA801160628CC00ACBC27 /* InstaInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaInteractor.m; sourceTree = "<group>"; };
 		C37FBD2F160DBC6500058DCE /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		C37FBD30160DBC9900058DCE /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		C37FBD32160DE67200058DCE /* AsyncLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncLoader.h; sourceTree = "<group>"; };
+		C37FBD33160DE67400058DCE /* AsyncLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncLoader.m; sourceTree = "<group>"; };
+		C37FBD35160DF0D700058DCE /* FeedRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedRow.h; sourceTree = "<group>"; };
+		C37FBD36160DF0D700058DCE /* FeedRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedRow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,10 @@
 				C37FA800160628CB00ACBC27 /* InstaInteractor.h */,
 				C37FA801160628CC00ACBC27 /* InstaInteractor.m */,
 				C37FA7A31605EACC00ACBC27 /* Supporting Files */,
+				C37FBD32160DE67200058DCE /* AsyncLoader.h */,
+				C37FBD33160DE67400058DCE /* AsyncLoader.m */,
+				C37FBD35160DF0D700058DCE /* FeedRow.h */,
+				C37FBD36160DF0D700058DCE /* FeedRow.m */,
 			);
 			path = instagram_demo;
 			sourceTree = "<group>";
@@ -116,6 +130,8 @@
 		C37FA7A31605EACC00ACBC27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C37F7E0F1610CEFC00B8CCD7 /* arrow@2x.png */,
+				C37F7E0D1610CEF300B8CCD7 /* arrow.png */,
 				C37FA7A41605EACC00ACBC27 /* instagram_demo-Info.plist */,
 				C37FA7A51605EACC00ACBC27 /* InfoPlist.strings */,
 				C37FA7A81605EACC00ACBC27 /* main.m */,
@@ -179,6 +195,8 @@
 				C37FA7B61605EACD00ACBC27 /* MasterViewController.xib in Resources */,
 				C37FA7B91605EACD00ACBC27 /* DetailViewController.xib in Resources */,
 				C37FA7FF1605F64600ACBC27 /* LoginViewController.xib in Resources */,
+				C37F7E0E1610CEF300B8CCD7 /* arrow.png in Resources */,
+				C37F7E101610CEFC00B8CCD7 /* arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +214,8 @@
 				C37FA7FE1605F64600ACBC27 /* LoginViewController.m in Sources */,
 				C37FA802160628CD00ACBC27 /* InstaInteractor.m in Sources */,
 				C37FBD31160DBC9900058DCE /* JSONKit.m in Sources */,
+				C37FBD34160DE67500058DCE /* AsyncLoader.m in Sources */,
+				C37FBD37160DF0D800058DCE /* FeedRow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

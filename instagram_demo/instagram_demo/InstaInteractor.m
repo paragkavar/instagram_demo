@@ -9,6 +9,8 @@
 #import "InstaInteractor.h"
 #import "JSONKit.h"
 
+NSDictionary *sharedDictionary;
+
 @implementation InstaInteractor
 
 +(NSString *) token{
@@ -23,7 +25,7 @@
 }
 
 +(void) getFeed {
-    NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/feed?access_token=%@", token];
+    NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@", token];
     
     NSOperationQueue *queue = [NSOperationQueue new];
     
@@ -35,7 +37,7 @@
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if ([data length] > 0 && error == nil)
         {
-            NSDictionary *resultsDictionary = [data objectFromJSONData];
+            NSDictionary *dict = [data objectFromJSONData];
         }
         else if ([data length] == 0 && error == nil)
         {
@@ -52,13 +54,15 @@
     NSString *likesUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/media/%i/feed?access_token=%@", mediaId, token];
     NSURLResponse *response = nil;
     NSError *error = nil;
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
     NSURL *URL = [NSURL URLWithString:likesUrl];
     [request setURL:URL];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [request setTimeoutInterval:30];
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    [request release];
     
     NSDictionary *resultDictionary = [data objectFromJSONData];
     

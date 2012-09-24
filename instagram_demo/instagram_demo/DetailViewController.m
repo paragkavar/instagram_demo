@@ -7,17 +7,23 @@
 //
 
 #import "DetailViewController.h"
+#import "InstaInteractor.h"
 
 @interface DetailViewController ()
 - (void)configureView;
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController{
+    int currentMediaId;
+}
+
+@synthesize imageView;
 
 - (void)dealloc
 {
     [_detailItem release];
     [_detailDescriptionLabel release];
+    [imageView release];
     [super dealloc];
 }
 
@@ -52,6 +58,7 @@
 
 - (void)viewDidUnload
 {
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.detailDescriptionLabel = nil;
@@ -71,4 +78,7 @@
     return self;
 }
 							
+- (IBAction)changeLike:(id)sender {
+    [InstaInteractor changeLike:currentMediaId];
+}
 @end

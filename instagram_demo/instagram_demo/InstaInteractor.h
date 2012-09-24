@@ -16,5 +16,6 @@ static NSString *token;
 +(void) setToken:(NSString *)newToken;
 
 +(void) getFeed;
++(BOOL) changeLike:(int)mediaId;
 
 @end

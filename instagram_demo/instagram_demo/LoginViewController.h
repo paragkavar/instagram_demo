@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class MasterViewController;
+
 @interface LoginViewController : UIViewController <UIWebViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) MasterViewController *masterViewController;
+
 
 @end

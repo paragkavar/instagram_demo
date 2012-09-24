@@ -41,15 +41,24 @@
     self.navigationItem.backBarButtonItem =logoutButton;
     [logoutButton release];
     
-    NSString *urlAddress2 = @"https://api.instagram.com/oauth/authorize/?client_id=bd4a5d199d1840a8b17054fab5835000&redirect_uri=http://habrahabr.ru/NeverGonnaFindMe&scope=likes&response_type=token&display=touch";
 
-    NSURL *url = [NSURL URLWithString:urlAddress2];
-    
+    NSString *logoutAddress = @"https://instagram.com/accounts/logout";
+        
+    NSURL *url = [NSURL URLWithString:logoutAddress];
+        
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    
+        
     [webView loadRequest:requestObj];
     [webView setScalesPageToFit:YES];
-}
+    
+    NSString *urlAddress2 = @"https://api.instagram.com/oauth/authorize/?client_id=bd4a5d199d1840a8b17054fab5835000&redirect_uri=http://habrahabr.ru/NeverGonnaFindMe&scope=likes&response_type=token&display=touch";
+    
+    NSURL *url2 = [NSURL URLWithString:urlAddress2];
+    
+    NSURLRequest *requestObj2 = [NSURLRequest requestWithURL:url2];
+    
+    [self.webView loadRequest:requestObj2];
+    [self.webView setScalesPageToFit:YES];}
 
 - (void)viewDidUnload
 {
@@ -112,7 +121,10 @@
         [self dismissModalViewControllerAnimated:YES];
         return NO;
     }
-    return YES;
+    else{
+        
+        return YES;
+    }
 }
 
-@end
+@end	

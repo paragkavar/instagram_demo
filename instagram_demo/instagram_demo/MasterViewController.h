@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "PullToRefreshView.h"
 
 @class DetailViewController;
 
@@ -15,4 +16,5 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+@property (retain, nonatomic) IBOutlet UITableView *feedTable;
 @end

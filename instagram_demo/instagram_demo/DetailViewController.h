@@ -11,7 +11,11 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
-
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
+
+- (IBAction)changeLike:(id)sender;
+
+
 
 @end

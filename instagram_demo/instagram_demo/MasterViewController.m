@@ -9,13 +9,18 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "InstaInteractor.h"
+#import "FeedRow.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation MasterViewController
+@implementation MasterViewController{
+ //   PullToRefreshView *pull;
+}
+@synthesize feedTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,8 +35,10 @@
 {
     [_detailViewController release];
     [_objects release];
+    [feedTable release];
     [super dealloc];
 }
+//TODO http://idev.by/ios/69/, pull to refresh, image kash, logout, json parse
 
 - (void)viewDidLoad
 {
@@ -41,10 +48,33 @@
 
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                    selector:@selector(imageLoadedNotification:)
+                    name:IMAGE_LOADED_NOTIFICATION object:nil];
+    
+    if (!_objects) {
+        _objects = [[NSMutableArray alloc] init];
+    }
+    NSDictionary *dict = [NSDictionary new];
+    
+    for(NSURL *url in dict)
+    {
+        FeedRow* feedRow = [FeedRow feedRowWithDescription:[dict objectForKey:url]];
+        feedRow.imageUrl = url;
+        
+        [_objects addObject:feedRow];
+    }
+    
+//    pull = [[PullToRefreshView alloc] initWithScrollView: (UIScrollView *) self.feedTable];
+ //   [pull setDelegate:self];
+//    [self.feedTable addSubview:pull];
 }
 
 - (void)viewDidUnload
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setFeedTable:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -59,9 +89,10 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [InstaInteractor getFeed];
+   // [_objects insertObject:[NSDate date] atIndex:0];
+   // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+   // [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -79,19 +110,28 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString* cellID = @"imagedCell";
+    UITableViewCell* cell;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if ( !cell ) {
+        cell =
+        [[UITableViewCell alloc]
+         initWithStyle:UITableViewCellStyleDefault
+         reuseIdentifier:cellID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
-
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object description];
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    FeedRow* row = [_objects objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = row.description;
+    
+    if ( row.image == nil )
+        [row loadImage];
+    
+    cell.imageView.image = row.image;
+    
     return cell;
 }
 
@@ -135,6 +175,46 @@
     NSDate *object = [_objects objectAtIndex:indexPath.row];
     self.detailViewController.detailItem = object;
     [self.navigationController pushViewController:self.detailViewController animated:YES];
+}
+
+-(void) imageLoadedNotification:(NSNotification*)notification {
+    if ( notification.object == nil )
+        return;
+    
+    FeedRow* row = (FeedRow*)notification.object;
+    
+    __block NSIndexPath* indexPath = nil;
+    
+    [_objects
+     enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         if ( obj == row ) {
+             indexPath
+             = [[NSIndexPath indexPathForRow:idx inSection:0] retain];
+             *stop = YES;
+         }
+     }];
+    
+    if ( indexPath != nil ) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [feedTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone]; //m_TableView?
+        });
+        
+        [indexPath release];
+    }
+}
+
+//-(void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+//{
+ //   [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
+//}
+
+-(void) reloadTableData
+{
+    //smth
+    
+//    [self.feedTable reloadData];
+//    [pull finishedLoading];
 }
 
 @end
