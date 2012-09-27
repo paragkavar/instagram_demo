@@ -58,7 +58,8 @@
     NSURLRequest *requestObj2 = [NSURLRequest requestWithURL:url2];
     
     [self.webView loadRequest:requestObj2];
-    [self.webView setScalesPageToFit:YES];}
+    [self.webView setScalesPageToFit:YES];
+}
 
 - (void)viewDidUnload
 {

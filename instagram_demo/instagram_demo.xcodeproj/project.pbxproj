@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C37EFFA416146B1E00A333FA /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EFFA316146B1E00A333FA /* EGORefreshTableHeaderView.m */; };
+		C37EFFA616149BF800A333FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EFFA516149BF800A333FA /* QuartzCore.framework */; };
 		C37F7E0E1610CEF300B8CCD7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C37F7E0D1610CEF300B8CCD7 /* arrow.png */; };
 		C37F7E101610CEFC00B8CCD7 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37F7E0F1610CEFC00B8CCD7 /* arrow@2x.png */; };
 		C37FA79D1605EACC00ACBC27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37FA79C1605EACC00ACBC27 /* UIKit.framework */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C37EFFA116146B1800A333FA /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		C37EFFA316146B1E00A333FA /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		C37EFFA516149BF800A333FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C37F7E0D1610CEF300B8CCD7 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		C37F7E0F1610CEFC00B8CCD7 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		C37FA7981605EACC00ACBC27 /* instagram_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37EFFA616149BF800A333FA /* QuartzCore.framework in Frameworks */,
 				C37FA79D1605EACC00ACBC27 /* UIKit.framework in Frameworks */,
 				C37FA79F1605EACC00ACBC27 /* Foundation.framework in Frameworks */,
 				C37FA7A11605EACC00ACBC27 /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +82,7 @@
 		C37FA78D1605EACC00ACBC27 = {
 			isa = PBXGroup;
 			children = (
+				C37EFFA516149BF800A333FA /* QuartzCore.framework */,
 				C37FA7A21605EACC00ACBC27 /* instagram_demo */,
 				C37FA79B1605EACC00ACBC27 /* Frameworks */,
 				C37FA7991605EACC00ACBC27 /* Products */,
@@ -107,6 +114,8 @@
 				C37FA7AC1605EACD00ACBC27 /* AppDelegate.m */,
 				C37FBD2F160DBC6500058DCE /* JSONKit.h */,
 				C37FBD30160DBC9900058DCE /* JSONKit.m */,
+				C37EFFA116146B1800A333FA /* EGORefreshTableHeaderView.h */,
+				C37EFFA316146B1E00A333FA /* EGORefreshTableHeaderView.m */,
 				C37FA7AE1605EACD00ACBC27 /* MasterViewController.h */,
 				C37FA7AF1605EACD00ACBC27 /* MasterViewController.m */,
 				C37FA7B11605EACD00ACBC27 /* DetailViewController.h */,
@@ -216,6 +225,7 @@
 				C37FBD31160DBC9900058DCE /* JSONKit.m in Sources */,
 				C37FBD34160DE67500058DCE /* AsyncLoader.m in Sources */,
 				C37FBD37160DF0D800058DCE /* FeedRow.m in Sources */,
+				C37EFFA416146B1E00A333FA /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

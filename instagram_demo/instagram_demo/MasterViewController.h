@@ -7,14 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "PullToRefreshView.h"
+#import "EGORefreshTableHeaderView.h"
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, EGORefreshTableHeaderDelegate>{
+
+EGORefreshTableHeaderView *_refreshHeaderView;
+BOOL _reloading;
+}
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-
+@property (strong, nonatomic) NSMutableArray *data;
 @property (retain, nonatomic) IBOutlet UITableView *feedTable;
+
 @end
