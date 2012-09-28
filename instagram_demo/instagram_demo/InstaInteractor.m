@@ -27,27 +27,25 @@ NSDictionary *sharedDictionary;
 +(void) getFeed {
     NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@", token];
     
-    NSOperationQueue *queue = [NSOperationQueue new];
+    NSError *error = nil;
+    NSURLResponse *response = nil;
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    
     NSURL *URL = [NSURL URLWithString:mediaUrl];
     [request setURL:URL];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [request setTimeoutInterval:30];
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-        if ([data length] > 0 && error == nil)
-        {
-            NSDictionary *dict = [data objectFromJSONData];
-        }
-        else if ([data length] == 0 && error == nil)
-        {
-            NSLog(@"Nothing was downloaded");
-        }
-        else if (error != nil)
-        {
-            NSLog(@"There was an error %@", error);
-        }
-    }];
+    
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSDictionary *dict = [jsonData objectFromJSONData];
+    
+    NSLog(@"Dict size %u", [dict count]);
+    
+    NSArray *images = [dict objectForKey:@"images"];
+    
+    NSString *imageOne = [images objectAtIndex:0];
+    NSLog(@"Image eq %@", imageOne);
 }
 
 +(BOOL) changeLike:(int)mediaId{
