@@ -8,6 +8,7 @@
 
 #import "InstaInteractor.h"
 #import "JSONKit.h"
+#import "AFNetworking/AFJSONRequestOperation.h"
 
 NSDictionary *sharedDictionary;
 
@@ -24,28 +25,14 @@ NSDictionary *sharedDictionary;
     }
 }
 
-+(void) getFeed {
++(void) getFeed {    
     NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@", token];
+    NSURL *url = [NSURL URLWithString:mediaUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSError *error = nil;
-    NSURLResponse *response = nil;
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {    NSLog(@"IP Address: %@, url is %@", [JSON valueForKeyPath:@"origin"], mediaUrl);} failure:nil];
     
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    
-    NSURL *URL = [NSURL URLWithString:mediaUrl];
-    [request setURL:URL];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setTimeoutInterval:30];
-    
-    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSDictionary *dict = [jsonData objectFromJSONData];
-    
-    NSLog(@"Dict size %u", [dict count]);
-    
-    NSArray *images = [dict objectForKey:@"images"];
-    
-    NSString *imageOne = [images objectAtIndex:0];
-    NSLog(@"Image eq %@", imageOne);
+    [operation start];
 }
 
 +(BOOL) changeLike:(int)mediaId{
